@@ -1,7 +1,7 @@
 // Title: Same Tree
 // Language: C++
-// Runtime: 4 ms
-// Submitted: 2016/7/12
+// Runtime: 0 ms
+// Submitted: 2016/7/2
 
 class Solution {
 public:
