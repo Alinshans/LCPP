@@ -1,6 +1,6 @@
 // Title:  Remove Nth Node From End of List
 // Language: C++
-// Runtime: 0 ms
+// Runtime: 6 ms
 // Submitted: 2016/11/6
 
 /**
