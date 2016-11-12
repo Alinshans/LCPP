@@ -1,7 +1,8 @@
 queue
 ===========
   This is some notes on FAQ and implementation details of queue in STL. The questions are not sequential.
------------
+
+***
 ###1.Why doesn't the top function return a value?</br>
   * Does not conform to exception-safe
   If there is a `pop` function like this
@@ -26,6 +27,6 @@ class queue
   * Performance loss
   There is a loss of performance, whether it is a copy constructor or a move constructor. If we do need to return a value, we can call the `front` function first, it will return a value by-reference-to-const, this operation is not detrimental to performance. Not everyone need the `pop` function to return a value, so the `pop` operator and the `return` operator should not be combined.
   
->Reference
+>Reference</br>
 [stackoverflow](http://stackoverflow.com/questions/25035691/why-doesnt-stdqueuepop-return-value)
 
