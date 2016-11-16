@@ -3,9 +3,12 @@ C-style string
   C-style string is a null-terminated byte string (NTBS), which is a sequence of nonzero bytes followed by a byte with value zero (the terminating null character). </br>
   The types of C-style string are like `char*`, `const char*`, or `char[]`.
 ***
-##function
+##catalog
+* Character array manipulation
+  * [memcpy](#memcpy)
+***
 ##memcpy
-  Defined in the header file [<cstring>](http://en.cppreference.com/w/cpp/header/cstring)
+  Defined in the header file [<cstring>](http://en.cppreference.com/w/cpp/header/cstring)</br>
 ```c++
   void* memcpy( void* dest, const void* src, std::size_t count );
 ```
@@ -14,7 +17,7 @@ C-style string
   `count`  -  number of bytes to copy</br>
   Copies count bytes from the object pointed to by `src` to the object pointed to by `dest`. </br>
 ***Notes:***
-* The `memcpy` funciton will not add '\0' automatically at the end, so we must ensure that the end of `dest` has a '\0'.
+* The `memcpy` funciton will not add '\0' automatically at the end, so we must ensure that the end of `dest` has a '\0'.</br>
 Example 1:
 ```c++
   char str1[] = "abc";  // sizeof(str1) : 4
@@ -54,7 +57,7 @@ Example 2:
   str2[3] = '\0';  // ok
   puts(str2);  // abc
 ```
-* If the objects overlap, the behavior is undefined.
+* If the objects overlap, the behavior is undefined.</br>
 Example 1:
 ```c++
   char str1[] = "abcde";  // sizeof(str1) : 6
@@ -63,7 +66,7 @@ Example 1:
   memcpy(str1, str1 + 3, 2);  // ok
   puts(str1);  // decde
 ```
-* If either dest or src is a null pointer, the behavior is undefined, even if count is zero. 
+* If either dest or src is a null pointer, the behavior is undefined, even if count is zero.</br>
 Example 1:
 ```c++
   char* str1 = nullptr;
