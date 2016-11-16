@@ -5,9 +5,11 @@ C-style string
 ***
 ##catalog
 * Character array manipulation
-  * [memcpy](#memcpy)
-***
-##memcpy
+    * [memcpy](#memcpy)
+    
+_______
+
+###memcpy
   Defined in the header file [<cstring>](http://en.cppreference.com/w/cpp/header/cstring)</br>
 ```c++
   void* memcpy( void* dest, const void* src, std::size_t count );
