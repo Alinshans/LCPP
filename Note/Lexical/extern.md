@@ -1,7 +1,9 @@
 extern
 =====
-Usage
------
+Objects and variables declared as `extern` declare an object that is defined in another translation unit or in an enclosing scope as having external linkage.
+---------
+##Usage
+---
 * Static storage duration with external linkage specifier
 * Language linkage specification
 
