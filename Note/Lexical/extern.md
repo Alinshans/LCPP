@@ -7,6 +7,7 @@ Declaration of **const** variables with the `extern` storage class forces the va
 ##Usage
 * Static storage duration with external linkage specifier
 * Language linkage specification
+
 ***
 ##1.Static storage duration with external linkage specifier
 `Extern` can be placed before the variable or function to mark the definition of variables or functions in other files. When you have a global variable or a global function, you can declare the existance of the variable or function in a header, and define it in other source files that include the header.<br>
