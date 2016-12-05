@@ -118,11 +118,8 @@ public:
     static const int n = 1;
     static constexpr int m = 2;
 };
-
-// MyClass::n and MyClass::m are odr-used
-const int *p = &MyClass::n, *q = &MyClass::m;  
-// so a definition is necessary (except for MyClass::m in C++17)
-const int MyClass::n, MyClass::m;
+const int *p = &MyClass::n, *q = &MyClass::m;  // MyClass::n and MyClass::m are odr-used
+const int MyClass::n, MyClass::m;              // so a definition is necessary (except for MyClass::m in C++17)
 ```
 
 ***
