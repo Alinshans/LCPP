@@ -2,7 +2,7 @@ extern
 =====
 Objects and variables declared as `extern` declare an object that is defined in another translation unit or in an enclosing scope as having external linkage.<br>
 
-Declaration of **const** variables with the `extern` storage class forces the variable to have external linkage. An initialization of an **extern const** variable is allowed in the defining translation unit. Initializations in translation units other than the defining translation unit produce undefined results. [(SEE MSDN)](https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern)
+Declaration of **const** variables with the `extern` storage class forces the variable to have external linkage. An initialization of an **extern const** variable is allowed in the defining translation unit. Initializations in translation units other than the defining translation unit produce undefined results.
 ***
 ##Usage
 * Static storage duration with external linkage specifier
@@ -52,8 +52,6 @@ int main()
 2
 2
 ```
->***References***<br>
-[http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c](http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c)
 
 ***
 ##2.Language linkage specification
@@ -82,6 +80,11 @@ extern "C" {
 }   // end of extern "C"
 #endif
 ```
+
+***
 >***References***<br>
+[https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern](https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern)<br>
 [https://msdn.microsoft.com/en-us/library/0603949d.aspx](https://msdn.microsoft.com/en-us/library/0603949d.aspx)<br>
+[http://stackoverflow.com/questions/6855022/extern-keyword-usage](http://stackoverflow.com/questions/6855022/extern-keyword-usage)<br>
+[http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c](http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c)<br>
 [http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c](http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c)<br>
