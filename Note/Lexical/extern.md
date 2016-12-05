@@ -2,10 +2,11 @@ extern
 =====
 Objects and variables declared as `extern` declare an object that is defined in another translation unit or in an enclosing scope as having external linkage.
 ***
+Declaration of **const** variables with the `extern` storage class forces the variable to have external linkage. An initialization of an **extern const** variable is allowed in the defining translation unit. Initializations in translation units other than the defining translation unit produce undefined results. [(SEE MSDN)](https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern)
+***
 ##Usage
 * Static storage duration with external linkage specifier
 * Language linkage specification
-
 ***
 ##1.Static storage duration with external linkage specifier
 `Extern` can be placed before the variable or function to mark the definition of variables or functions in other files. When you have a global variable or a global function, you can declare the existance of the variable or function in a header, and define it in other source files that include the header.<br>
@@ -50,7 +51,7 @@ int main()
 2
 2
 ```
->References<br>
+>***References***<br>
 [http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c](http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c)
 
 ***
@@ -80,6 +81,6 @@ extern "C" {
 }   // end of extern "C"
 #endif
 ```
->References<br>
+>***References***<br>
 [https://msdn.microsoft.com/en-us/library/0603949d.aspx](https://msdn.microsoft.com/en-us/library/0603949d.aspx)<br>
 [http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c](http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c)<br>
