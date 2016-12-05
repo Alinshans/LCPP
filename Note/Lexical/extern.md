@@ -1,7 +1,7 @@
 extern
 =====
-Objects and variables declared as `extern` declare an object that is defined in another translation unit or in an enclosing scope as having external linkage.
-***
+Objects and variables declared as `extern` declare an object that is defined in another translation unit or in an enclosing scope as having external linkage.<br>
+
 Declaration of **const** variables with the `extern` storage class forces the variable to have external linkage. An initialization of an **extern const** variable is allowed in the defining translation unit. Initializations in translation units other than the defining translation unit produce undefined results. [(SEE MSDN)](https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern)
 ***
 ##Usage
