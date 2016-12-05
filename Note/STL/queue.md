@@ -26,7 +26,7 @@ class queue
   If the copy constructor of T throws an exception when the function value is returned, the state of the queue has been changed,  simultaneously, the element will be removed and will not be returned.
   * Performance loss
   There is a loss of performance, whether it is a copy constructor or a move constructor. If we do need to return a value, we can call the `front` function first, it will return a value by-reference-to-const, this operation is not detrimental to performance. Not everyone need the `pop` function to return a value, so the `pop` operator and the `return` operator should not be combined.
-  
->Reference</br>
-[stackoverflow](http://stackoverflow.com/questions/25035691/why-doesnt-stdqueuepop-return-value)
+
+>***Reference***</br>
+[http://stackoverflow.com/questions/25035691/why-doesnt-stdqueuepop-return-value](http://stackoverflow.com/questions/25035691/why-doesnt-stdqueuepop-return-value)
 
