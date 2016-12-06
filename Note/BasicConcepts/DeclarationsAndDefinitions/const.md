@@ -4,7 +4,8 @@ const
 ___
 ##Usage
 * [Const values](#Const values)
-* Const member functions
+* [Const && pointer && reference](#Const && pointer && reference)
+* [Const member functions](#Const member functions)
 
 ___
 ###Const values
@@ -33,3 +34,11 @@ const int* a;        // pointer to const int
 int* const a;        // const pointer to int
 const int* const a;  // const pointer to const int
 ```
+
+###Const member functions
+
+___
+>***Reference***<br>
+[https://msdn.microsoft.com/en-us/library/07x6b05d.aspx](https://msdn.microsoft.com/en-us/library/07x6b05d.aspx)<br>
+[http://stackoverflow.com/questions/1143262/what-is-the-difference-between-const-int-const-int-const-and-int-const?rq=1](http://stackoverflow.com/questions/1143262/what-is-the-difference-between-const-int-const-int-const-and-int-const?rq=1)<br>
+[My answer in Zhihu :-)](https://www.zhihu.com/question/52468516/answer/130657574)
