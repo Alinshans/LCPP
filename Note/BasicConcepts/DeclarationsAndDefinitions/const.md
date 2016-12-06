@@ -55,7 +55,7 @@ int* const pNum = &num1;  // need to set pointer here because we can not change 
 ```
   `const int* const` means both the pointer and the value that point to can not be changed.<br>
   
-  `reference` is similar to `pointer`, one of their differences is, Once a `reference` is bound to a variable, it can not be changed, this `reference` always represents the variable that was originally bound to it. So the `reference` is always `const reference`, That means `int& rNum` is equal to `int& const rNum`.
+  `reference` is similar to `pointer`, one of their differences is, once a `reference` is bound to a variable, it can not be changed, this `reference` always represents the variable that was originally bound to it. So the `reference` is always `const reference`, That means `int& rNum` is equal to `int& const rNum`.
   
 ###3. Const member functions
 Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can not modify any non-static data members or call any member functions that aren't constant.To declare a constant member function, place the `const` keyword after the closing parenthesis of the argument list. The `const` keyword is required in both the declaration and the definition.<br>
