@@ -62,15 +62,20 @@ Declaring a member function with the `const` keyword specifies that the function
 ```c++
 class MyClass {
 public:
-    int returnValue_nonconst() { return value; }        // non-const member function
-    int returnValue_const() const { return value; }     // const member function
-    int get() const { return returnValue_nonconst(); }  // error: call non-const member function
-    int get() const { return returnValue_const(); }     // ok
+    int returnValue_nonconst() { return value; }           // non-const member function
+    int returnValue_const() const { return value; }        // const member function
+    // int get() const { return returnValue_nonconst(); }  // error: call non-const member function
+    int get() const { return returnValue_const(); }        // ok
     void set(int x) { value = x; }
-    int returnValue() { return get(); }
 private:
     int value;
 };
+int main() {
+    MyClass c1;
+    const MyClass c2;
+    c1.set(1);
+    // c2.set(2);  // error: can not modify the object
+}
 ```
 ___
 >***Reference***<br>
