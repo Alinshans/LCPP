@@ -3,9 +3,9 @@ const
   When modifying a data declaration, the `const` keyword specifies that the object or variable is not modifiable.
 ___
 ##Usage
-* [Const values](#1. Const values)
-* [Const && pointer && reference](#2. Const && pointer && reference)
-* [Const member functions](#3. Const member functions)
+* Const values
+* Const && pointer && reference
+* Const member functions
 
 ___
 ###1. Const values
