@@ -1,6 +1,3 @@
-#ifndef LCPP_DRAW_DIAMOND_H__
-#define LCPP_DRAW_DIAMOND_H__
-
 #include <cmath>
 #include <iostream>
 
@@ -22,8 +19,14 @@
 void diamond_digit(int n) 
 {
   for (int i = 1, flag = 1; i != 0; ++flag, i += (flag <= n) ? 1 : -1)
-    for (int j = 1; j <= 2 * (n + i) - 2; 
-      putchar(j < 2 * (n + i) - 2 ? (abs(2 * n - 1 - j) < i * 2 && j & 1) ? i + '0' : ' ' : '\n'), ++j) { }
+    for (int j = 1; j <= 2 * (n + i) - 2; putchar(j < 2 * (n + i) - 2 ? (abs(2 * n - 1 - j) < i * 2 && j & 1) ? i + '0' : ' ' : '\n'), ++j) { }
 }
 
-#endif // !LCPP_DRAW_DIAMOND_H__
+int main()
+{
+	diamond_digit(0);
+	diamond_digit(1);
+	diamond_digit(4);
+	diamond_digit(7);
+	diamond_digit(9);
+}
