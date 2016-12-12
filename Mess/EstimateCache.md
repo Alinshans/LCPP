@@ -63,5 +63,17 @@ int main()
 65536 KB, 2.471secs, dummy: 33554432
 131072 KB, 2.652secs, dummy: 33554432
 ```
+___
 ##Conclusion
 We draw the data from the column chart, you can find the rate of change in the largest place between **2048KB** and **4096KB**.<br>
+![](https://github.com/Alinshans/LCPP/blob/master/Mess/Images/EstimateCache.png)
+
+Ok, Let's check our conclusion! The following is my CPU information:
+```
+CPU
+Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
+L1 cache:	128 KB
+L2 cache:	512 KB
+L3 cache:	3.0 MB
+```
+Yeah, this is similar to our estimate! ^_^
