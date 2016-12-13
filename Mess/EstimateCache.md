@@ -76,4 +76,4 @@ L1 cache:	128 KB
 L2 cache:	512 KB
 L3 cache:	3.0 MB
 ```
-Yeah, this is similar to our estimate! ^_^
+Yeah, this is similar to our estimation! ^_^
