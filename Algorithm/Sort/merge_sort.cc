@@ -1,6 +1,6 @@
 /*
   [ Merge sort ]
-  T(n) = nlog(n)
+  T(n) = O(nlogn)
 */
 
 #ifdef _MSC_VER
