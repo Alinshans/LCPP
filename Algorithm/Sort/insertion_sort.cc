@@ -1,6 +1,7 @@
 /*
   [ Insertion sort ]
   T(n) = O(n²)
+  Iterator Required : Random access iterator
 */
 #include <iostream>
 #include <algorithm>
@@ -15,7 +16,7 @@ void insertion_sort(Iter first, Iter last)
     for (auto i = first + 1; i != last; ++i)
     {
         auto value = *i;
-        if (value <= *first)
+        if (!(*first < value))
         {
             std::copy(first, i, first + 1);
             *first = value;
