@@ -1,6 +1,7 @@
 /*
   [ Merge sort ]
   T(n) = O(nlogn)
+  Iterator Required : Random access iterator
 */
 
 #ifdef _MSC_VER
