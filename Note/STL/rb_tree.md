@@ -1,8 +1,9 @@
 Red-Black Tree
 ===========
 Red-black tree is a balanced binary tree, it is much more efficient than the AVL tree in terms of insertion efficiency. It is used as the underlying mechanism for `std::set` and `std::map`.<br>
------------
-##1. Why there is a `header` node, and let its left node points to the `left-most` node, let its right node points to the `right-most` node?
+
+___
+###1. Why there is a `header` node, and let its left node points to the `left-most` node, let its right node points to the `right-most` node?
   This is an implementation technique. If there is no `header` node and it does not have the `left` member, the time complexity of calling the `begin()` will be O(logn), beceuse it have to start from root node and traverse until the `left-most` node. In order to let the call of `begin()` keep constant time complexity, so it did.<br>
   And why its right node points to the `right-most` node? We know the time complexity of `end()` is O(1), it only need to construct an iterator using the header directly. Here is a comment in the source code:
 ```
@@ -40,3 +41,5 @@ If I uncomment the `#2`, the average running time is 0.21s.<br>
 If I uncomment the `#3`, the average running time is 0.10s.<br>
 From these data, we may be understand the contents of the above.
 
+>***Reference***<br>
+[http://www.cnblogs.com/Solstice/archive/2013/01/20/2868455.html](http://www.cnblogs.com/Solstice/archive/2013/01/20/2868455.html)
