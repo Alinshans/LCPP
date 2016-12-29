@@ -1,4 +1,4 @@
-[Red-black Tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+[Red-black Tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree "Wikipedia")
 ===========
 Red-black tree is a kind of self-balancing binary search tree, it is much more efficient than the AVL tree in terms of insertion efficiency. It is used as the underlying mechanism for `std::set` and `std::map`.<br>
 
@@ -44,9 +44,6 @@ If I uncomment the `#2`, the average running time is 0.21s.<br>
 If I uncomment the `#3`, the average running time is 0.10s.<br>
 From these data, we should be able to understand the contents of the above mentioned.
 
->***Reference***<br>
-[http://www.cnblogs.com/Solstice/archive/2013/01/20/2868455.html](http://www.cnblogs.com/Solstice/archive/2013/01/20/2868455.html)
-
 ###3. Why the `header` node has a `color` member and let it be red?
   This allows you to use the following code to quickly determine if an `iterator` is `end()`:
 ```c++
@@ -54,4 +51,7 @@ if (node->color == rb_tree_red && node->parent->parent == node)
 ```
 
 ###4. Why iterator's increments / decrements after apportionment is constant time?
-  We can make a simple proof. Because the traversal to the `end()` from the `begin()`, each edge up to traverse twice. A tree has N nodes, N-1 sides,  up to traverse 2\*(N-1) times, so, the average increments / decrements take two steps.
+  We can make a simple proof. Because the traversal to the `end()` from the `begin()`, each edge up to traverse twice. A tree has N nodes, N-1 sides,  up to traverse 2\*(N-1) times, so, the average increments / decrements take two steps.<br>
+  
+>***Reference***<br>
+[http://www.cnblogs.com/Solstice/archive/2013/01/20/2868455.html](http://www.cnblogs.com/Solstice/archive/2013/01/20/2868455.html)
