@@ -1,8 +1,8 @@
-queue
+[queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type) "Wikipedia")
 ===========
-  This is some notes on FAQ and implementation details of queue in STL. The questions are not sequential.
+  Queue is a commonly used first-in-first-out data structure.
 
-***
+___
 ###1.Why doesn't the top function return a value?</br>
   * Does not conform to exception-safe
   If there is a `pop` function like this
