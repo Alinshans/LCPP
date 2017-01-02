@@ -5,25 +5,24 @@
 */
 
 #include <iostream>
-#include <iterator>
 #include <vector>
 #include <algorithm>
 
 #include <Windows.h>
 
 template <typename Iter>
-void adjust_heap(Iter top, size_t parent, size_t len)
+void adjust_heap(Iter top, size_t parent, size_t size)
 {
     auto child = (parent << 1) + 1;
-    if (child < len)
+    if (child < size)
     {
         auto rchild = child + 1;
-        if (rchild < len && *(top + child) < *(top + rchild))
+        if (rchild < size && *(top + child) < *(top + rchild))
             child = rchild;
         if (*(top + parent) < *(top + child))
         {
             std::iter_swap(top + parent, top + child);
-            adjust_heap(top, child, len);
+            adjust_heap(top, child, size);
         }
     }
 }
@@ -74,7 +73,7 @@ int main()
     // output:
     // true
 
-    // [ performance test ]
+    // performance test
     HEAP_SORT_TEST(10000);
     HEAP_SORT_TEST(100000);
     HEAP_SORT_TEST(1000000);
