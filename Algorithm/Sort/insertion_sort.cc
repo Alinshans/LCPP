@@ -1,11 +1,14 @@
 /*
   [ Insertion sort ]
-  T(n) = O(n²)
-  Iterator Required : Random access iterator
+  Best time complexity    : O(n)
+  Worst time complexity   : O(n²)
+  Average time complexity : O(n²)
+  Iterator Required       : Random access iterator
 */
-#include <iostream>
 #include <algorithm>
 #include <vector>
+#include <iostream>
+#include <ctime>
 
 #include <Windows.h>
 
@@ -43,13 +46,27 @@ void insertion_sort(Iter first, Iter last)
 
 int main()
 {
-    int a[] = { 9,8,8,7,6,6,6,5,4,2,1,1,1 };
-    insertion_sort(a, a + 13);
-    for (auto& it : a)
+    srand((int)time(0));
+
+    // [ small data test ]
+    std::vector<int> v = { 2,3,6,9,0,3,9,6,5,7 };
+    insertion_sort(v.begin(), v.end());
+    for (auto& it : v)
         std::cout << " " << it;
-    std::cout << std::endl;
-    // output: 1 1 1 2 4 5 6 6 6 7 8 8 9
-    
+    std::cout << "\n";
+    // output:
+    // 0 2 3 3 5 6 6 7 9 9
+
+    // [ big data test ]
+    std::vector<int> v2(10000);
+    for (auto& it : v2)
+        it = rand();
+    insertion_sort(v2.begin(), v2.end());
+    std::cout << std::boolalpha << " " << std::is_sorted(v2.begin(), v2.end()) << "\n";
+    // output:
+    // true
+
+    // [ performance test ]
     INSERTION_SORT_TEST(10000);
     INSERTION_SORT_TEST(100000);
     INSERTION_SORT_TEST(1000000);
