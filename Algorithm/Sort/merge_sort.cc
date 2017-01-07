@@ -1,19 +1,18 @@
 /*
   [ Merge sort ]
-  T(n) = O(nlogn)
-  Iterator Required : Random access iterator
+  Best time complexity    : O(nlog(n))
+  Worst time complexity   : O(nlog(n))
+  Average time complexity : O(nlog(n))
+  Iterator Required       : Random access iterator
 */
-
 #ifdef _MSC_VER
 #pragma warning(disable : 4996)
 #endif // _MSC_VER
 
-#include <iostream>
-#include <cstddef>
-#include <memory>
-#include <iterator>
+#include <algorithm>
 #include <vector>
-#include <string>
+#include <iostream>
+#include <ctime>
 
 #include <Windows.h>
 
@@ -58,23 +57,6 @@ void merge_sort(Iter first, Iter last)
     delete[]arr;
 }
 
-class A
-{
-public:
-    A(int x = 0, int y = 0) :x_(x), y_(y) {}
-    friend bool operator<(const A& lhs, const A& rhs)
-    {
-        return lhs.x_ < rhs.x_ || lhs.x_ == rhs.x_ && lhs.y_ < rhs.y_;
-    }
-    friend std::ostream& operator<<(std::ostream& os, const A& obj)
-    {
-        os << "(" << obj.x_ << "," << obj.y_ << ")";
-        return os;
-    }
-private:
-    int x_, y_;
-};
-
 // test
 #define MERGE_SORT_TEST(count) do {                       \
   std::vector<int> v(count);                               \
@@ -90,40 +72,27 @@ private:
 
 int main()
 {
-    int a[] = { 9,8,7,6,5,4,3,2,1 };
-    std::vector<int> v{ 9,9,4,3,5,7,7,2,1 };
-    std::string s("oasidfjasdf");
-    std::vector<A> va{ {1,2},{2,2},{3,1},{1,5},{5,2} };
+    srand((int)time(0));
 
-    merge_sort(a, a + 9);
-    for (auto& it : a)
-        std::cout << " " << it;
-    std::cout << "\n---------------------------------\n";
-
+    // [ small data test ]
+    std::vector<int> v = { 2,3,6,9,0,3,9,6,5,7 };
     merge_sort(v.begin(), v.end());
     for (auto& it : v)
         std::cout << " " << it;
-    std::cout << "\n---------------------------------\n";
-
-    merge_sort(s.begin(),s.end());
-    std::cout << " " << s;
-    std::cout << "\n---------------------------------\n";
-
-    merge_sort(va.begin(), va.end());
-    for (auto& it : va)
-        std::cout << " " << it;
-    std::cout << "\n---------------------------------\n";
-
+    std::cout << "\n";
     // output:
-    //  1 2 3 4 5 6 7 8 9
-    // ---------------------------------
-    //  1 2 3 4 5 7 7 9 9
-    // ---------------------------------
-    //  aaddffijoss
-    // ---------------------------------
-    //  (1,2) (1,5) (2,2) (3,1) (5,2)
-    // ---------------------------------
-  
+    // 0 2 3 3 5 6 6 7 9 9
+
+    // [ big data test ]
+    std::vector<int> v2(10000);
+    for (auto& it : v2)
+        it = rand();
+    merge_sort(v2.begin(), v2.end());
+    std::cout << std::boolalpha << " " << std::is_sorted(v2.begin(), v2.end()) << "\n";
+    // output:
+    // true
+
+    // [ performance test ]
     MERGE_SORT_TEST(10000);
     MERGE_SORT_TEST(100000);
     MERGE_SORT_TEST(1000000);
