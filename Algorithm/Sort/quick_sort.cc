@@ -1,14 +1,14 @@
 /*
   [ Quick sort ]
-  T(n) = O(nlogn)
-  Iterator Required : Random access iterator
+  Best time complexity    : O(nlog(n))
+  Worst time complexity   : O(n²)
+  Average time complexity : O(nlog(n))
+  Iterator Required       : Random access iterator
 */
-
-#include <iostream>
-#include <cstddef>
-#include <memory>
-#include <iterator>
+#include <algorithm>
 #include <vector>
+#include <iostream>
+#include <ctime>
 
 #include <Windows.h>
 
@@ -61,23 +61,27 @@ void quick_sort(Iter first, Iter last)
 
 int main()
 {
-    int a[] = { 9,8,7,6,5,4,3,2,1 };
-    std::vector<double> v{ 1.5,2.7,4.7,3.8,3.7,15.9,12.0,19 };
+    srand((int)time(0));
 
-    quick_sort(a, a + 9);
-    for (auto& it : a)
-        std::cout << " " << it;
-    std::cout << "\n";
-
+    // [ small data test ]
+    std::vector<int> v = { 2,3,6,9,0,3,9,6,5,7 };
     quick_sort(v.begin(), v.end());
     for (auto& it : v)
         std::cout << " " << it;
     std::cout << "\n";
-
     // output:
-    // 1 2 3 4 5 6 7 8 9
-    // 1.5 2.7 3.7 3.8 4.7 12 15.9 19
+    // 0 2 3 3 5 6 6 7 9 9
 
+    // [ big data test ]
+    std::vector<int> v2(10000);
+    for (auto& it : v2)
+        it = rand();
+    quick_sort(v2.begin(), v2.end());
+    std::cout << std::boolalpha << " " << std::is_sorted(v2.begin(), v2.end()) << "\n";
+    // output:
+    // true
+
+    // [ performance test ]
     QUICK_SORT_TEST(10000);
     QUICK_SORT_TEST(100000);
     QUICK_SORT_TEST(1000000);
