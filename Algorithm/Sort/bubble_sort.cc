@@ -1,12 +1,14 @@
 /*
   [ Bubble sort ]
-  T(n) = O(n²)
-  Iterator Required : Random access iterator
+  Best time complexity    : O(n)
+  Worst time complexity   : O(n²)
+  Average time complexity : O(n²)
+  Iterator Required       : Random access iterator
 */
-
-#include <iostream>
-#include <vector>
 #include <algorithm>
+#include <vector>
+#include <iostream>
+#include <ctime>
 
 #include <Windows.h>
 
@@ -45,21 +47,23 @@ void bubble_sort(Iter first, Iter last)
 
 int main()
 {
-    // [ small data ]
-    std::vector<int> v = { 4,3,1,6,4,3,7,9,5,7 };
+    srand((int)time(0));
+
+    // [ small data test ]
+    std::vector<int> v = { 2,3,6,9,0,3,9,6,5,7 };
     bubble_sort(v.begin(), v.end());
     for (auto& it : v)
         std::cout << " " << it;
     std::cout << "\n";
     // output:
-    // 1 3 3 4 4 5 6 7 7 9
+    // 0 2 3 3 5 6 6 7 9 9
 
-    // [ big data ]
+    // [ big data test ]
     std::vector<int> v2(10000);
     for (auto& it : v2)
         it = rand();
     bubble_sort(v2.begin(), v2.end());
-    std::cout << std::boolalpha << std::is_sorted(v2.begin(), v2.end()) << "\n";
+    std::cout << std::boolalpha << " " << std::is_sorted(v2.begin(), v2.end()) << "\n";
     // output:
     // true
 
