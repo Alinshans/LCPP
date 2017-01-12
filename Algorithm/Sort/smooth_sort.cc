@@ -136,7 +136,7 @@ void smooth_sort(Iter first, Iter last)
     ull p = 1;
     LeonardoNumber l;
     ui len = std::distance(first, last);
-    for (unsigned i = 0; ++i < len; ++p)
+    for (ui i = 0; ++i < len; ++p)
     {
         if (p % 8 == 3)
         {
