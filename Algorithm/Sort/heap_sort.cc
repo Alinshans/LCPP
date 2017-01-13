@@ -3,9 +3,9 @@
   Best time complexity    : O(nlog(n))
   Worst time complexity   : O(nlog(n))
   Average time complexity : O(nlog(n))
+  Space complexity        : O(1)
   Iterator Required       : Random access iterator
 */
-
 #include <algorithm>
 #include <vector>
 #include <iostream>

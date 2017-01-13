@@ -1,13 +1,15 @@
 /*
   [ sleep sort ]
-  T(n) = N/A
+  Best time complexity    : -
+  Worst time complexity   : -
+  Average time complexity : -
+  
+  [ Note ]
   Create n threads for n number, let the nth thread sleep a time as long as the nth number,
   then ouput it. So the bigger the number, the later the output.
   But, this method is only suitable for small data size, and these data are almost non-repetitive.
   Otherwise, there will be errors in sorting.
-  Just For Fun!
 */
-
 #include <iostream>
 #include <vector>
 #include <thread>

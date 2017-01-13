@@ -3,6 +3,7 @@
   Best time complexity    : O(nlog(n))
   Worst time complexity   : O(n²)
   Average time complexity : O(nlog(n))
+  Space complexity        : O(log(n))
   Iterator Required       : Random access iterator
 */
 #include <algorithm>
@@ -12,38 +13,34 @@
 
 #include <Windows.h>
 
-template <typename T>
-void quick_sort_helper(T arr[], size_t left, size_t right)
+template <typename Iter>
+void quick_sort_helper(Iter first, size_t left, size_t right)
 {
     size_t i = left, j = right;
-    auto pivot(arr[(left + right) / 2]);
+    auto pivot = *(first + (left + right) / 2);
     while (i <= j)
     {
-        while (arr[i] < pivot) { ++i; }
-        while (pivot < arr[j]) { --j; }
+        while (*(first + i) < pivot) { ++i; }
+        while (pivot < *(first + j)) { --j; }
         if (i <= j)
         {
-            std::swap(arr[i], arr[j]);
+            std::iter_swap(first + i, first + j);
             ++i, --j;
         }
     }
     if (left < j)
-        quick_sort_helper(arr, left, j);
+        quick_sort_helper(first, left, j);
     if (i < right)
-        quick_sort_helper(arr, i, right);
+        quick_sort_helper(first, i, right);
 }
 
 // function template
 template <typename Iter>
 void quick_sort(Iter first, Iter last)
 {
-    if (first == last || first == last - 1)  return;
-    typedef typename std::iterator_traits<Iter>::value_type T;
-    T* arr = new T[last - first];
-    std::uninitialized_copy(first, last, arr);
-    quick_sort_helper(arr, 0, last - first - 1);
-    std::copy(arr, arr + (last - first), first);
-    delete[]arr;
+    if (first == last || first == last - 1) 
+        return;
+    quick_sort_helper(first, 0, last - first - 1);
 }
 
 // test
