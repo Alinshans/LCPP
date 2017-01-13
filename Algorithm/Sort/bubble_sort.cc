@@ -3,6 +3,7 @@
   Best time complexity    : O(n)
   Worst time complexity   : O(n²)
   Average time complexity : O(n²)
+  Space complexity        : O(1)
   Iterator Required       : Random access iterator
 */
 #include <algorithm>
