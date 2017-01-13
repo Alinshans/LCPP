@@ -3,12 +3,9 @@
   Best time complexity    : O(nlog(n))
   Worst time complexity   : O(nlog(n))
   Average time complexity : O(nlog(n))
+  Space complexity        : O(n)
   Iterator Required       : Random access iterator
 */
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif // _MSC_VER
-
 #include <algorithm>
 #include <vector>
 #include <iostream>
@@ -16,45 +13,51 @@
 
 #include <Windows.h>
 
-template <typename T>
-void merge_helper(T *arr, size_t left, size_t mid, size_t right)
+template <typename Iter>
+void merge_helper(Iter first, size_t left, size_t mid, size_t right)
 {
+    typedef typename std::iterator_traits<Iter>::value_type T;
     auto len1 = mid - left + 1, len2 = right - mid;
     T *l = new T[len1];
     T *r = new T[len2];
     size_t i = 0, j = 0, z = left;
-    std::uninitialized_copy(arr + left, arr + mid + 1, l);
-    std::uninitialized_copy(arr + mid + 1, arr + right + 1, r);
-    while (i < len1 && j < len2)  arr[z++] = r[j] < l[i] ? r[j++] : l[i++];
-    while (i < len1)              arr[z++] = l[i++];
-    while (j < len2)              arr[z++] = r[j++];
+    std::uninitialized_copy(first + left, first + mid + 1, l);
+    std::uninitialized_copy(first + mid + 1, first + right + 1, r);
+    while (i < len1 && j < len2)
+    {
+        *(first + z++) = r[j] < l[i] ? r[j++] : l[i++];
+    }
+    while (i < len1)
+    {
+        *(first + z++) = l[i++];
+    }
+    while (j < len2)
+    {
+        *(first + z++) = r[j++];
+    }
     delete[]l;
     delete[]r;
 }
 
-template <typename T>
-void merge_sort_helper(T *arr, size_t left, size_t right)
+template <typename Iter>
+void divide_helper(Iter first, size_t left, size_t right)
 {
     if (left < right)
     {
         auto mid = (left + right) / 2;
-        merge_sort_helper(arr, left, mid);
-        merge_sort_helper(arr, mid + 1, right);
-        merge_helper(arr, left, mid, right);
+        divide_helper(first, left, mid);
+        divide_helper(first, mid + 1, right);
+        merge_helper(first, left, mid, right);
     }
 }
 
-// function template : merge_sort
+// function template
 template <typename Iter>
 void merge_sort(Iter first, Iter last)
 {
-    if (first == last || first == last - 1) return;
-    typedef typename std::iterator_traits<Iter>::value_type T;
-    T *arr = new T[last - first];
-    std::uninitialized_copy(first, last, arr);
-    merge_sort_helper(arr, 0, last - first - 1);
-    std::copy(arr, arr + (last - first), first);
-    delete[]arr;
+    if (first == last || first == last - 1)
+        return;
+    divide_helper(first, 0, last - first - 1);
 }
 
 // test
@@ -101,31 +104,31 @@ int main()
 // for the MERGE_SORT_TEST, I test 5 times.
 
 // [ 1st time ]
-//   10000 numbers cost : 0.004426s
-//  100000 numbers cost : 0.048915s
-// 1000000 numbers cost : 0.368160s
+//   10000 numbers cost : 0.003613s
+//  100000 numbers cost : 0.034559s
+// 1000000 numbers cost : 0.352965s
 
 // [ 2nd time ]
-//   10000 numbers cost : 0.003565s
-//  100000 numbers cost : 0.037457s
-// 1000000 numbers cost : 0.358801s
+//   10000 numbers cost : 0.004117s
+//  100000 numbers cost : 0.033645s
+// 1000000 numbers cost : 0.360408s
 
 // [ 3rd time ]
-//   10000 numbers cost : 0.003133s
-//  100000 numbers cost : 0.034335s
-// 1000000 numbers cost : 0.414295s
+//   10000 numbers cost : 0.003159s
+//  100000 numbers cost : 0.034170s
+// 1000000 numbers cost : 0.340123s
 
 // [ 4th time ]
-//   10000 numbers cost : 0.004541s
-//  100000 numbers cost : 0.036790s
-// 1000000 numbers cost : 0.366309s
+//   10000 numbers cost : 0.003426s
+//  100000 numbers cost : 0.038650s
+// 1000000 numbers cost : 0.343489s
 
 // [ 5th time ]
-//   10000 numbers cost : 0.004316s
-//  100000 numbers cost : 0.035001s
-// 1000000 numbers cost : 0.366878s
+//   10000 numbers cost : 0.003222s
+//  100000 numbers cost : 0.034359s
+// 1000000 numbers cost : 0.347924s
 
 // [ average ]
-//   10000 numbers cost : 0.003996s
-//  100000 numbers cost : 0.038500s
-// 1000000 numbers cost : 0.374889s
+//   10000 numbers cost : 0.003507s
+//  100000 numbers cost : 0.035077s
+// 1000000 numbers cost : 0.348982s
