@@ -3,6 +3,7 @@
   Best time complexity    : O(n+k) (k -- the number of buckets)
   Worst time complexity   : O(n²)
   Average time complexity : O(n+k) (k -- the number of buckets)
+  Space complexity        : O(n+k) (k -- the number of buckets)
   Iterator Required       : Random access iterator
 */
 #include <algorithm>
