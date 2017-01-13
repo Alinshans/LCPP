@@ -3,6 +3,7 @@
   Best time complexity    : -
   Worst time complexity   : O(n+r)
   Average time complexity : O(n+r)
+  Space complexity        : O(n+r)
 
   [ Note ]
   Counting sort is an algorithm for sorting a collection
@@ -16,50 +17,105 @@
   so it is only suitable for direct use in situations 
   where the variation in keys is not significantly greater than
   the number of items.
+  
+  The sorted element types apply only to integer types.
 */
 #include <algorithm>
 #include <vector>
 #include <iostream>
 #include <ctime>
 
-#ifndef MAXSIZE
-#define MAXSIZE 100
-#endif
-
 // function template
 template <typename Iter>
 void counting_sort(Iter first, Iter last)
 {
-    int arr[MAXSIZE + 1];
-    std::memset(arr, 0, sizeof(arr));
-    for (; first != last; ++first)
+    typedef typename std::iterator_traits<Iter>::value_type T;
+    auto it = std::max_element(first, last);
+    const auto max_size = *it + 1;
+    T* map = new T[max_size];
+    std::fill(map, map + max_size, 0);
+    for (auto cur = first; cur != last; ++cur)
     {
-        ++arr[*first];
+        ++map[*cur];
     }
-    for (int i = 0; i < MAXSIZE; ++i)
+    for (T i = 0; i < max_size; ++i)
     {
-        for (int j = arr[i]; j > 0; --j)
+        if (map[i])
         {
-            std::cout << " " << i;
+            first = std::fill_n(first, map[i], i);
         }
     }
+    delete[]map;
 }
+
+#define COUNTING_SORT_TEST(count) do {                    \
+  std::vector<int> v(count);                               \
+  for (auto& it : v) it = rand();                          \
+  LARGE_INTEGER t1, t2, tc;                                \
+  QueryPerformanceFrequency(&tc);                          \
+  QueryPerformanceCounter(&t1);                            \
+  counting_sort(v.begin(), v.end());                       \
+  QueryPerformanceCounter(&t2);                            \
+  printf(" %7d numbers cost : %fs\n",                      \
+    count,(t2.QuadPart - t1.QuadPart)*1.0 / tc.QuadPart);  \
+} while(0)
 
 int main()
 {
     srand((int)time(0));
 
+    // [ small data test ]
     std::vector<int> v = { 2,3,6,9,0,3,9,6,5,7 };
     counting_sort(v.begin(), v.end());
+    for (auto& it : v)
+        std::cout << " " << it;
     std::cout << "\n";
     // output:
     // 0 2 3 3 5 6 6 7 9 9
 
-    std::vector<int> v2(100);
+    // [ big data test ]
+    std::vector<int> v2(10000);
     for (auto& it : v2)
-        it = rand() % 100;
+        it = rand();
     counting_sort(v2.begin(), v2.end());
-    std::cout << "\n";
+    std::cout << std::boolalpha << " " << std::is_sorted(v2.begin(), v2.end()) << "\n";
     // output:
-    //  0 1 2 2 4 5 5 6 8 10 12 13 13 16 17 17 18 20 21 23 23 26 27 27 28 28 30 32 33 34 35 35 35 36 38 39 40 40 46 46 47 48 48 49 49 50 50 52 52 53 54 54 55 55 56 57 58 58 58 58 59 60 60 61 62 63 63 64 67 67 67 67 69 69 69 70 71 75 78 78 79 81 82 84 84 85 88 89 90 90 92 92 92 93 94 95 95 97 98 99
+    // true
+
+    // [ performance test ]
+    COUNTING_SORT_TEST(10000);
+    COUNTING_SORT_TEST(100000);
+    COUNTING_SORT_TEST(1000000);
 }
+
+// for the COUNTING_SORT_TEST, I test 5 times.
+
+// [ 1st time ]
+//   10000 numbers cost : 0.000291s
+//  100000 numbers cost : 0.000914s
+// 1000000 numbers cost : 0.005861s
+
+// [ 2nd time ]
+//   10000 numbers cost : 0.000353s
+//  100000 numbers cost : 0.001005s
+// 1000000 numbers cost : 0.005621s
+
+// [ 3rd time ]
+//   10000 numbers cost : 0.000290s
+//  100000 numbers cost : 0.001330s
+// 1000000 numbers cost : 0.005818s
+
+// [ 4th time ]
+//   10000 numbers cost : 0.000312s
+//  100000 numbers cost : 0.000934s
+// 1000000 numbers cost : 0.005940s
+
+// [ 5th time ]
+//   10000 numbers cost : 0.000340s
+//  100000 numbers cost : 0.000925s
+// 1000000 numbers cost : 0.005567s
+
+// [ average ]
+//   10000 numbers cost : 0.000317s
+//  100000 numbers cost : 0.001022s
+// 1000000 numbers cost : 0.005761s
