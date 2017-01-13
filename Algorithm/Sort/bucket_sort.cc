@@ -5,6 +5,9 @@
   Average time complexity : O(n+k) (k -- the number of buckets)
   Space complexity        : O(n+k) (k -- the number of buckets)
   Iterator Required       : Random access iterator
+  
+  [ Note ]
+  The sorted element types apply only to integer types.
 */
 #include <algorithm>
 #include <vector>
