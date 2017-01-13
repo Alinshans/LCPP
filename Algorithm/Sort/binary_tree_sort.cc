@@ -3,6 +3,7 @@
   Best time complexity    : O(nlog(n))
   Worst time complexity   : O(nlog(n))
   Average time complexity : O(nlog(n))
+  Space complexity        : O(n)
   Iterator Required       : Forward iterator
 */
 #include <algorithm>
