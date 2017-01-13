@@ -3,6 +3,7 @@
   Best time complexity    : O(n^(7/6))
   Worst time complexity   : O(n^(4/3))
   Average time complexity : -
+  Space complexity        : O(1)
   Iterator Required       : Random access iterator
 */
 #include <algorithm>
@@ -13,7 +14,7 @@
 #include <Windows.h>
 
 // This sequence of steps is proposed by Sedgewick
-constexpr size_t step[] = {
+constexpr static size_t step[] = {
     0,
     1,           5,
     19,          41,
@@ -36,7 +37,7 @@ constexpr size_t step[] = {
 template <typename Iter>
 void shell_sort(Iter first, Iter last)
 {
-    int len = last - first;
+    auto len = last - first;
     int k = 0;
     while (step[k + 1] < static_cast<size_t>(len)) ++k;
     for (int inc = step[k]; inc > 0; inc = step[--k])
