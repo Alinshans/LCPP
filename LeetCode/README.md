@@ -1,7 +1,7 @@
 LeetCode
 =====
 My answers to [LeetCode OJ](https://leetcode.com/problemset/algorithms/)<br>
-Solved 43 / 417 problems.
+
 ------
 | # | Title | My answer | Runtimes |
 |:-------:|:--------:|:-------:|:--------:|

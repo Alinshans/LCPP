@@ -10,7 +10,7 @@ C-style string
 _______
 
 ###memcpy
-  Defined in the header file [cstring](http://en.cppreference.com/w/cpp/header/cstring)</br>
+  Defined in the header file [\<cstring\>](http://en.cppreference.com/w/cpp/header/cstring)</br>
 ```c++
   void* memcpy( void* dest, const void* src, std::size_t count );
 ```
@@ -72,22 +72,22 @@ Example 1:
 Example 1:
 ```c++
   char* str1 = nullptr;
-	char str2[3];
+  char str2[3];
 	
-	memcpy(str2, str1, sizeof(str2));  // the program will crash
-	puts(str2);
+  memcpy(str2, str1, sizeof(str2));  // the program will crash
+  puts(str2);
   
   memcpy(str2, str1, 0); 
-	puts(str2);  // undefine
+  puts(str2);  // undefine
 ```
 Example 2:
 ```c++
   char* str1 = "abc";
-	char* str2 = nullptr;
+  char* str2 = nullptr;
 	
-	memcpy(str2, str1, sizeof(str2));  // the program will crash
-	puts(str2);
+  memcpy(str2, str1, sizeof(str2));  // the program will crash
+  puts(str2);
   
-  memcpy(str2, str1, 0);  // crash, too
-	puts(str2);
+  memcpy(str2, str1, 0);             // crash, too
+  puts(str2);
 ```

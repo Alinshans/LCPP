@@ -1,15 +1,18 @@
 extern
 =====
-Usage
------
+Objects and variables declared as `extern` declare an object that is defined in another translation unit or in an enclosing scope as having external linkage.<br>
+
+Declaration of **const** variables with the `extern` storage class forces the variable to have external linkage. An initialization of an **extern const** variable is allowed in the defining translation unit. Initializations in translation units other than the defining translation unit produce undefined results.
+***
+##Usage
 * Static storage duration with external linkage specifier
 * Language linkage specification
 
-===
-###Static storage duration with external linkage specifier
+***
+##1.Static storage duration with external linkage specifier
 `Extern` can be placed before the variable or function to mark the definition of variables or functions in other files. When you have a global variable or a global function, you can declare the existance of the variable or function in a header, and define it in other source files that include the header.<br>
 
-**header**
+**header.h**
 ```c++
 #ifndef HEADER_H_
 #define HEADER_H_
@@ -49,10 +52,9 @@ int main()
 2
 2
 ```
->References<br>
-[http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c](http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c)
 
-###Language linkage specification
+***
+##2.Language linkage specification
 The C++ compiler compiles a unique name for every function within a program, but in C it is not necessary because C can not overload the function name. So in order for C++ and C compilers to produce compatible object files, we need to tell the C++ compiler that it should not rename some functions.<br>
 Then we can use `extern "C"`. When `extern` is used with `"C"`, it means that a function has a C linkage. That will suppress the C++ `name mangling` program. Like this:<br>
 ```c++
@@ -78,6 +80,11 @@ extern "C" {
 }   // end of extern "C"
 #endif
 ```
->References<br>
+
+***
+>***References***<br>
+[https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern](https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#extern)<br>
 [https://msdn.microsoft.com/en-us/library/0603949d.aspx](https://msdn.microsoft.com/en-us/library/0603949d.aspx)<br>
+[http://stackoverflow.com/questions/6855022/extern-keyword-usage](http://stackoverflow.com/questions/6855022/extern-keyword-usage)<br>
+[http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c](http://stackoverflow.com/questions/10422034/when-to-use-extern-in-c)<br>
 [http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c](http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c)<br>
