@@ -1,6 +1,6 @@
 /*
-  [ sleep sort ]
-  Best time complexity    : -
+  [ Sleep sort ]
+  Best time complexity    : O(1)
   Worst time complexity   : -
   Average time complexity : -
   
