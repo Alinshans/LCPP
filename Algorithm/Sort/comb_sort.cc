@@ -2,7 +2,7 @@
   [ Comb sort ]
   Best time complexity    : O(nlog(n))
   Worst time complexity   : O(n²)
-  Average time complexity : O(n²/2^p)) ( p is the number of increments )
+  Average time complexity : O(n²/(2^p)) ( p is the number of increments )
   Space complexity        : O(1)
   Iterator Required       : Forward iterator
 */
