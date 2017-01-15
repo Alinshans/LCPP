@@ -149,16 +149,43 @@ int main()
 // 1000000 numbers cost : 388238.903761ms
 
 // [ 4th time ]
-//   10000 numbers cost : 0.044038s
-//  100000 numbers cost : 3.917899s
-// 1000000 numbers cost : 393.662278s
+// [ Small amount of data ]
+//      16 numbers cost : 0.513186μs
+//      32 numbers cost : 1.446250μs
+//      64 numbers cost : 4.198791μs
+//     128 numbers cost : 13.249519μs
+//     512 numbers cost : 154.935399μs
+//    1024 numbers cost : 510.153144μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 41.296046ms
+//  100000 numbers cost : 3965.799912ms
+// 1000000 numbers cost : 419211.770705ms
 
 // [ 5th time ]
-//   10000 numbers cost : 0.050582s
-//  100000 numbers cost : 3.954847s
-// 1000000 numbers cost : 400.196344s
+// [ Small amount of data ]
+//      16 numbers cost : 0.653145μs
+//      32 numbers cost : 1.586210μs
+//      64 numbers cost : 4.805283μs
+//     128 numbers cost : 14.509157μs
+//     512 numbers cost : 153.722415μs
+//    1024 numbers cost : 487.806244μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 39.112674ms
+//  100000 numbers cost : 3910.177590ms
+// 1000000 numbers cost : 388830.867088ms
 
 // [ average ]
-//   10000 numbers cost : 0.044447s
-//  100000 numbers cost : 3.926242s
-// 1000000 numbers cost : 402.915603s
+// [ Small amount of data ]
+//      16 numbers cost : 0.615823μs
+//      32 numbers cost : 1.726170μs
+//      64 numbers cost : 4.404065μs
+//     128 numbers cost : 13.939987μs
+//     512 numbers cost : 150.167438μs
+//    1024 numbers cost : 493.693882μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 39.881986ms
+//  100000 numbers cost : 3896.193842ms
+// 1000000 numbers cost : 394233.806428ms
