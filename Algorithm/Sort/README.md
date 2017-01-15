@@ -149,6 +149,7 @@ None.
 #Test
 I chose some of the sorting algorithms that are commonly used or work better to show their performances in various orders of magnitude. <br>
 * **Small amount of data (In microseconds)**
+
 | Sorting algorithm | 16 | 32 | 64 | 128 | 512 | 1024 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Bubble sort|0.718460μs|2.323331μs|8.742816μs|30.240628μs|451.183452μs|1876.617118μs|
@@ -162,6 +163,7 @@ I chose some of the sorting algorithms that are commonly used or work better to 
 |Comb sort|0.513186μs|1.110347μs|2.351323μs|5.514413μs|28.999652μs|62.673958μs|
 
 * **Large amount of data (In milliseconds)**
+
 | Sorting algorithm | 10000 | 100000 | 1000000 |
 |:---:|:---:|:---:|:---:|
 |Bubble sort|192.724614ms|15324.636641ms|551999.618190ms|
