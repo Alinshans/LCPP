@@ -4,9 +4,11 @@
   Worst time complexity   : O(n^(4/3))
   Average time complexity : -
   Space complexity        : O(1)
+  Stable                  : No
   Iterator Required       : Random access iterator
 */
 #include <algorithm>
+#include <functional>
 #include <vector>
 #include <iostream>
 #include <ctime>
@@ -34,17 +36,18 @@ constexpr static size_t step[] = {
 };
 
 // function template
-template <typename Iter>
-void shell_sort(Iter first, Iter last)
+template <typename Iter, typename Compare = std::less<>>
+void shell_sort(Iter first, Iter last, Compare cmp = Compare())
 {
     auto len = last - first;
-    int k = 0;
-    while (step[k + 1] < static_cast<size_t>(len)) ++k;
+    size_t k = 0;
+    while (step[k + 1] < static_cast<size_t>(len)) 
+        ++k;
     for (int inc = step[k]; inc > 0; inc = step[--k])
     {
         for (auto i = inc; i < len; ++i)
         {
-            for (auto j = i - inc; j >= 0 && *(first + j + inc) < *(first + j); j -= inc)
+            for (auto j = i - inc; j >= 0 && cmp(*(first + j + inc), *(first + j)); j -= inc)
             {
                 std::iter_swap(first + j, first + j + inc);
             }
@@ -52,32 +55,48 @@ void shell_sort(Iter first, Iter last)
     }
 }
 
-#define SHELL_SORT_TEST(count) do {                       \
-  std::vector<int> v(count);                               \
-  for (auto& it : v) it = rand();                          \
-  LARGE_INTEGER t1, t2, tc;                                \
-  QueryPerformanceFrequency(&tc);                          \
-  QueryPerformanceCounter(&t1);                            \
-  shell_sort(v.begin(), v.end());                          \
-  QueryPerformanceCounter(&t2);                            \
-  printf(" %7d numbers cost : %fs\n",                      \
-    count,(t2.QuadPart - t1.QuadPart)*1.0 / tc.QuadPart);  \
+// test
+#define SMALL_SORT_TEST(sort, count) do {                  \
+    double t = 0.0;                                         \
+    std::vector<int> v(count);                              \
+    LARGE_INTEGER t1, t2, tc;                               \
+    for (int i = 0; i < 10; ++i) {                          \
+        for (auto& it : v) it = rand();                     \
+        QueryPerformanceFrequency(&tc);                     \
+        QueryPerformanceCounter(&t1);                       \
+        sort(v.begin(), v.end());                           \
+        QueryPerformanceCounter(&t2);                       \
+        t += (t2.QuadPart - t1.QuadPart)*1e6 / tc.QuadPart; \
+    }                                                       \
+    t /= 10.0;                                              \
+    printf(" %7d numbers cost : %fμs\n", count, t);         \
+} while(0)
+
+#define LARGE_SORT_TEST(sort, count) do {                  \
+  std::vector<int> v(count);                                \
+  for (auto& it : v) it = rand();                           \
+  LARGE_INTEGER t1, t2, tc;                                 \
+  QueryPerformanceFrequency(&tc);                           \
+  QueryPerformanceCounter(&t1);                             \
+  sort(v.begin(), v.end());                                 \
+  QueryPerformanceCounter(&t2);                             \
+  printf(" %7d numbers cost : %fms\n",                      \
+    count,(t2.QuadPart - t1.QuadPart)*1e3 / tc.QuadPart);   \
 } while(0)
 
 int main()
 {
     srand((int)time(0));
 
-    // [ small data test ]
+    /** [ Correctness verification ] **/
     std::vector<int> v = { 2,3,6,9,0,3,9,6,5,7 };
-    shell_sort(v.begin(), v.end());
+    shell_sort(v.begin(), v.end(), std::greater<>());
     for (auto& it : v)
         std::cout << " " << it;
     std::cout << "\n";
     // output:
-    // 0 2 3 3 5 6 6 7 9 9
+    // 9 9 7 6 6 5 3 3 2 0
 
-    // [ big data test ]
     std::vector<int> v2(10000);
     for (auto& it : v2)
         it = rand();
@@ -86,40 +105,104 @@ int main()
     // output:
     // true
 
-    // [ performance test ]
-    SHELL_SORT_TEST(10000);
-    SHELL_SORT_TEST(100000);
-    SHELL_SORT_TEST(1000000);
+    /** [ Small amount of data ] **/
+    std::cout << "\n [ Small amount of data ]\n";
+    SMALL_SORT_TEST(shell_sort, 16);
+    SMALL_SORT_TEST(shell_sort, 32);
+    SMALL_SORT_TEST(shell_sort, 64);
+    SMALL_SORT_TEST(shell_sort, 128);
+    SMALL_SORT_TEST(shell_sort, 512);
+    SMALL_SORT_TEST(shell_sort, 1024);
+
+    /** [ Large amount of data ] **/
+    std::cout << "\n [ Large amount of data ]\n";
+    LARGE_SORT_TEST(shell_sort, 10000);
+    LARGE_SORT_TEST(shell_sort, 100000);
+    LARGE_SORT_TEST(shell_sort, 1000000);
 }
 
-// for the SHELL_SORT_TEST, I test 5 times
+// I run 5 times for 'Small amount of data' and 'Large amount of data'.
 
 // [ 1st time ]
-//   10000 numbers cost : 0.001157s
-//  100000 numbers cost : 0.015571s
-// 1000000 numbers cost : 0.178859s
+// [ Small amount of data ]
+//      16 numbers cost : 0.559839μs
+//      32 numbers cost : 1.119678μs
+//      64 numbers cost : 2.565928μs
+//     128 numbers cost : 6.484800μs
+//     512 numbers cost : 36.482831μs
+//    1024 numbers cost : 85.701996μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 1.192923ms
+//  100000 numbers cost : 16.191472ms
+// 1000000 numbers cost : 179.318713ms
 
 // [ 2nd time ]
-//   10000 numbers cost : 0.001293s
-//  100000 numbers cost : 0.015740s
-// 1000000 numbers cost : 0.190875s
+// [ Small amount of data ]
+//      16 numbers cost : 0.419879μs
+//      32 numbers cost : 1.026371μs
+//      64 numbers cost : 2.705888μs
+//     128 numbers cost : 6.531453μs
+//     512 numbers cost : 36.296218μs
+//    1024 numbers cost : 83.369334μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 1.195722ms
+//  100000 numbers cost : 15.968003ms
+// 1000000 numbers cost : 179.756321ms
 
 // [ 3rd time ]
-//   10000 numbers cost : 0.001186s
-//  100000 numbers cost : 0.016806s
-// 1000000 numbers cost : 0.176640s
+// [ Small amount of data ]
+//      16 numbers cost : 0.559839μs
+//      32 numbers cost : 1.212984μs
+//      64 numbers cost : 3.125767μs
+//     128 numbers cost : 7.324558μs
+//     512 numbers cost : 41.661340μs
+//    1024 numbers cost : 87.754738μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 1.212984ms
+//  100000 numbers cost : 15.017677ms
+// 1000000 numbers cost : 180.792956ms
 
 // [ 4th time ]
-//   10000 numbers cost : 0.001181s
-//  100000 numbers cost : 0.015493s
-// 1000000 numbers cost : 0.174109s
+// [ Small amount of data ]
+//      16 numbers cost : 1.446250μs
+//      32 numbers cost : 0.979718μs
+//      64 numbers cost : 3.545646μs
+//     128 numbers cost : 6.298187μs
+//     512 numbers cost : 33.497024μs
+//    1024 numbers cost : 97.505265μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 1.204587ms
+//  100000 numbers cost : 15.579382ms
+// 1000000 numbers cost : 180.861536ms
 
 // [ 5th time ]
-//   10000 numbers cost : 0.001171s
-//  100000 numbers cost : 0.016294s
-// 1000000 numbers cost : 0.193354s
+// [ Small amount of data ]
+//      16 numbers cost : 0.466532μs
+//      32 numbers cost : 1.119678μs
+//      64 numbers cost : 2.845847μs
+//     128 numbers cost : 6.764719μs
+//     512 numbers cost : 36.622791μs
+//    1024 numbers cost : 83.835866μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 1.197589ms
+//  100000 numbers cost : 15.168833ms
+// 1000000 numbers cost : 180.234050ms
 
 // [ average ]
-//   10000 numbers cost : 0.001198s
-//  100000 numbers cost : 0.015974s
-// 1000000 numbers cost : 0.182767s
+// [ Small amount of data ]
+//      16 numbers cost : 0.690468μs
+//      32 numbers cost : 1.091686μs
+//      64 numbers cost : 2.957815μs
+//     128 numbers cost : 6.680743μs
+//     512 numbers cost : 36.912041μs
+//    1024 numbers cost : 87.633440μs
+//
+// [ Large amount of data ]
+//   10000 numbers cost : 1.200761ms
+//  100000 numbers cost : 15.585073ms
+// 1000000 numbers cost : 180.192715ms
