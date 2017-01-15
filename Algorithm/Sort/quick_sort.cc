@@ -193,14 +193,14 @@ int main()
 
 // [ average ]
 // [ Small amount of data ]
-//      16 numbers cost : 1.4275892μs
-//      32 numbers cost : 2.2020326μs
-//      64 numbers cost : 4.7586302μs
-//     128 numbers cost : 9.0973812μs
+//      16 numbers cost : 1.427589μs
+//      32 numbers cost : 2.202033μs
+//      64 numbers cost : 4.758630μs
+//     128 numbers cost : 9.097381μs
 //     512 numbers cost : 40.513671μs
-//    1024 numbers cost : 84.2370842μs
+//    1024 numbers cost : 84.237084μs
 //
 // [ Large amount of data ]
-//   10000 numbers cost : 1.0450326ms
-//  100000 numbers cost : 8.9989428ms
-// 1000000 numbers cost : 78.8811062ms
+//   10000 numbers cost : 1.045033ms
+//  100000 numbers cost : 8.998943ms
+// 1000000 numbers cost : 78.881106ms
