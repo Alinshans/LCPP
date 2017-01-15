@@ -119,7 +119,7 @@ int main()
     LARGE_SORT_TEST(quick_sort, 1000000);
 }
 
-// I run 5 times for the 'Small amount of data' and 'Large amount of data'.
+// I run 5 times for 'Small amount of data' and 'Large amount of data'.
 
 // [ 1st time ]
 // [ Small amount of data ]
