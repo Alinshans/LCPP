@@ -20,19 +20,17 @@ template <typename Iter, typename Compare = std::less<>>
 void bubble_sort(Iter first, Iter last, Compare cmp = Compare())
 {
     bool is_sorted = false;
-    for (auto i = first; i < last - 1; ++i)
+    for (auto i = first; !is_sorted && i < last - 1; ++i)
     {
         is_sorted = true;
         for (auto j = i + 1; j < last; ++j)
         {
-            if (cmp(*j,*i))
+            if (cmp(*j, *i))
             {
                 std::iter_swap(i, j);
                 is_sorted = false;
             }
         }
-        if (is_sorted)
-            return;
     }
 }
 
