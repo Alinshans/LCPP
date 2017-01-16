@@ -4,7 +4,7 @@
   Worst time complexity   : O(n²)
   Average time complexity : O(n²)
   Space complexity        : O(1)
-  Stable                  : No
+  Stable                  : Yes
   Iterator Required       : Random access iterator
 */
 #include <algorithm>
@@ -19,10 +19,12 @@
 template <typename Iter, typename Compare = std::less<>>
 void insertion_sort(Iter first, Iter last, Compare cmp = Compare())
 {
+    if (first == last || first == last - 1)
+        return;
     for (auto i = first + 1; i != last; ++i)
     {
         auto value = *i;
-        if (!cmp(*first, value))
+        if (cmp(value, *first))
         {
             std::copy(first, i, first + 1);
             *first = value;
