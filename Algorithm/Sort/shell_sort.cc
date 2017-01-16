@@ -35,11 +35,13 @@ constexpr static size_t step[] = {
     2415771649u, 4294770689u,
 };
 
-// function template
+// shell_sort
 template <typename Iter, typename Compare = std::less<>>
 void shell_sort(Iter first, Iter last, Compare cmp = Compare())
 {
     auto len = last - first;
+    if (len < 2)
+        return;
     size_t k = 0;
     while (step[k + 1] < static_cast<size_t>(len)) 
         ++k;
