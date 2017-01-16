@@ -76,7 +76,7 @@ None.
 ###**Insertion sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|O(n)|O(n²)|O(n²)|O(1)|No|[insertion_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/insertion_sort.cc)|
+|O(n)|O(n²)|O(n²)|O(1)|Yes|[insertion_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/insertion_sort.cc)|
 
 ####Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/insertion_sort.gif)
@@ -147,7 +147,7 @@ None.
 
 ***
 #Test
-I chose some of the sorting algorithms that are commonly used or work better to show their performances in various orders of magnitude. <br>
+I chose some of the sorting algorithms that are commonly used or work better to show their performances in various orders of magnitude, and compared them to `std::sort`. (Only for **integers**)<br>
 * **Small amount of data (In microseconds)**
 
 | Sorting algorithm | 16 | 32 | 64 | 128 | 512 | 1024 |
@@ -161,6 +161,7 @@ I chose some of the sorting algorithms that are commonly used or work better to 
 |Shell sort|0.690468μs|1.091686μs|2.957815μs|6.680743μs|36.912041μs|87.633440μs|
 |Smooth sort|1.045032μs|2.649904μs|6.475469μs|15.134310μs|77.033824μs|168.044959μs|
 |Comb sort|0.513186μs|1.110347μs|2.351323μs|5.514413μs|28.999652μs|62.673958μs|
+|std::sort|0.438540μs|0.821097μs|2.621912μs|5.924961μs|31.798846μs|66.770113μs|
 
 * **Large amount of data (In milliseconds)**
 
@@ -175,3 +176,25 @@ I chose some of the sorting algorithms that are commonly used or work better to 
 |Shell sort|1.200761ms|15.585073ms|180.192715ms|
 |Smooth sort|2.136252ms|25.397649ms|350.425244ms|
 |Comb sort|0.988116ms|10.678459ms|126.565752ms|
+|std::sort|0.845077ms|10.250556ms|104.314305ms|
+
+From the above table, we can see that (In my sorting algorithms implementation):<br>
+* When the amount of data is less than 128, `insertion_sort` is more advantageous.
+* When the amount of data is between 128 and 10000, `comb_sort` is more advantageous.
+* When the amount of data is greater than 10000, `quick_sort` is more advantageous.
+
+In order to get more accurate data, I have done a further test.<br>
+
+| Sorting algorithm | 16 | 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 10000 | 100000 | 1000000 | 10000000 | 100000000 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Insertion sort|0.401218μs|0.690468μs|1.558218μs|4.198791μs|13.090898μs|45.300293μs|167.597088μs|518.410767μs|2153.046876μs|9295.592109μs|-|-|-|-|-|
+|Comb sort|0.606492μs|1.250307μs|2.836517μs|6.494131μs|16.561899μs|36.277557μs|84.600980μs|163.528925μs|330.892747μs|747.338199μs|0.901061ms|12.528727ms|140.981603ms|1540.349918ms|16413.311661ms|
+|Quick sort|1.166331μs|2.286009μs|4.870598μs|10.459656μs|22.356231μs|47.968858μs|102.991685μs|180.827946μs|386.783325μs|804.982939μs|0.942489ms|10.484755ms|91.543914ms|865.948456ms|8535.924019ms|
+|std::sort|0.485194μs|0.951726μs|2.799194μs|6.596768μs|14.947697μs|33.711629μs|74.971752μs|138.485468μs|308.657814μs|629.482793μs|0.817458ms|9.687451ms|100.566277ms|961.007785ms|9889.731343ms|
+
+Now I am sure that:
+* When the amount of data is less than 256, `insertion_sort` has a very good performance, even better than `std::sort`.
+* When the amount of data is between 256 and 10000, the performance of `comb_sort` is slightly better than `quick_sort`.
+* When the amount of data is between 256 and 100000, the performance of `std::sort` is the best.
+* When the amount of data is greater than 100000, the performance of `std::sort` is not as good as `quick_sort`.
+
