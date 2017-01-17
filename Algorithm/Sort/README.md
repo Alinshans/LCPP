@@ -198,3 +198,12 @@ Now I am sure that:
 * When the amount of data is between 256 and 100000, the performance of `std::sort` is the best.
 * When the amount of data is greater than 100000, the performance of `std::sort` is not as good as `quick_sort`.
 
+How can I beat `std::sort`? So I referred to the practice of introsort, but did not control the split depth. I call it [Impro sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/impro_sort.cc), and now use it to compare with `quick_sort` and `std::sort`.<br>
+
+| Sorting algorithm | 16 | 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 10000 | 100000 | 1000000 | 10000000 | 100000000 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Quick sort|1.166331μs|2.286009μs|4.870598μs|10.459656μs|22.356231μs|47.968858μs|102.991685μs|180.827946μs|386.783325μs|804.982939μs|0.942489ms|10.484755ms|91.543914ms|865.948456ms|8535.924019ms|
+|Impro sort|**0.466531μs**|**0.886410μs**|**2.108721μs**|**6.326164μs**|**12.363079μs**|**27.637313μs**|**59.771987μs**|**125.935454μs**|**278.136618μs**|**479.678131μs**|**0.617594ms**|**7.230302ms**|**84.720028ms**|**724.386383ms**|**7360.014444ms**|
+|std::sort|0.485194μs|0.951726μs|2.799194μs|6.596768μs|14.947697μs|33.711629μs|74.971752μs|138.485468μs|308.657814μs|629.482793μs|0.817458ms|9.687451ms|100.566277ms|961.007785ms|9889.731343ms|
+
+From the latest test can be seen, no matter in which respect, `Impro sort` havs improved than `Quick sort`, that's why I call it `Impro sort`, which means "Improved sort". And in my test, `Impro sort` achieved a comprehensive victory, even faster than `std::sort`. Oh yeah! Although the results may not be so accurate, this shows that there is space for improvement in sorting algorithm, and we can do better through our efforts.
