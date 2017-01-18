@@ -39,15 +39,15 @@ void insertion_sort(Iter first, Iter last, Compare cmp = Compare())
     }
 }
 
-template <typename Iter, typename T>
-Iter __impro_partition(Iter first, Iter last, T pivot)
+template <typename Iter, typename T, typename Compare>
+Iter __impro_partition(Iter first, Iter last, T pivot, Compare cmp)
 {
     while (true)
     {
-        while (*first < pivot)
+        while (cmp(*first, pivot))
             ++first;
         --last;
-        while (pivot < *last)
+        while (cmp(pivot, *last))
             --last;
         if (!(first < last))
             return first;
@@ -59,10 +59,10 @@ Iter __impro_partition(Iter first, Iter last, T pivot)
 template <typename Iter, typename Compare>
 void __impro_split(Iter first, Iter last, Compare cmp)
 {
-    while (last - first > 96)
+    while (last - first > 128)
     {
         auto pivot = *(first + (last - first) / 2);
-        auto mid = __impro_partition(first, last, pivot);
+        auto mid = __impro_partition(first, last, pivot, cmp);
         __impro_split(mid, last, cmp);
         last = mid;
     }
