@@ -1,8 +1,8 @@
-##Constexpr
+#Constexpr
 
 The keyword `constexpr` was introduced in `C++11` and improved in `C++14`. It means *constant expression*. Like `const`, it can be applied to variables so that a compiler error will be raised if any code attempts to modify the value. Unlike `const`, `constexpr` can also be applied to functions and class constructors. `constexpr` indicates that the value, or return value, is constant and, if possible, will be computed at compile time. A `constexpr` integral value can be used wherever a const integer is required, such as in template arguments and array declarations. And when a value can be computed at compile time instead of run time, it can help your program can run faster and use less memory.<br>
 
-###constexpr variables
+##constexpr variables
 The primary difference between `const` and `constexpr` variables is that the initialization of a `const` variable can be deferred until run time whereas a `constexpr` variable must be initialized at compile time. All `constexpr` variables are `const`.
 ```c++
 template <int N>
@@ -35,7 +35,7 @@ int main() {
 }
 ```
 
-###constexpr functions
+##constexpr functions
 A `constexpr` function is one whose return value can be computed at compile when consuming code requires it. A `constexpr` function must satisfy the following requirements:
 * it must not be virtual
 * its return type must be literal types
