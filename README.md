@@ -1,2 +1,1 @@
-# LCPP
-My learning path for C++
+Learning Cpp : From start to abandon
