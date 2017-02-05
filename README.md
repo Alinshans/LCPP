@@ -1,1 +1,2 @@
-Learning Cpp : From start to abandon
+  
+  Practices and notes for C++
