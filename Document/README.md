@@ -24,3 +24,4 @@ ___
 * [Google C++ 风格指南（中文版）](http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/contents/)
 * [LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html#hl_dontinclude)
 * [Linux Tutorial: C++ Coding Practices, Style, Standards and document generation (dOxygen)](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++CodingStyle.html#STYLE)
+* [C++ Coding Standard - by Todd Hoff](http://www.possibility.com/Cpp/CppCodingStandard.html)
