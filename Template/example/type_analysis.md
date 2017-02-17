@@ -2,7 +2,7 @@ Type analysis template
 ====================
 ##Code
 
-**Header : type_analysis.h**
+**Header file : type_analysis.h**
 ```c++
 #ifndef TYPE_ANALYSIS_H_
 #define TYPE_ANALYSIS_H_
@@ -13,13 +13,13 @@ Type analysis template
 
 namespace type_analysis {
 
-#define RST        io::format::reset           // reset
-#define UNKNOWN(x) io::hfg::red << x << RST    // unknown type
-#define FUNC(x)    io::hfg::yellow << x << RST // function
-#define ARRAY(x)   io::hfg::green << x << RST  // array
-#define TYPE(x)    io::hfg::cyan << x << RST   // type
-#define PR(x)      io::hfg::purple << x << RST // pointer / reference
-#define MOD(x)     io::hfg::cyan << x << RST   // modifier
+#define RST        gbl::io::format::reset           // reset
+#define UNKNOWN(x) gbl::io::hfg::red << x << RST    // unknown type
+#define FUNC(x)    gbl::io::hfg::yellow << x << RST // function
+#define ARRAY(x)   gbl::io::hfg::green << x << RST  // array
+#define TYPE(x)    gbl::io::hfg::cyan << x << RST   // type
+#define PR(x)      gbl::io::hfg::purple << x << RST // pointer / reference
+#define MOD(x)     gbl::io::hfg::cyan << x << RST   // modifier
 
 template <typename T, typename ...Args>
 struct type_of {};
@@ -228,13 +228,14 @@ std::ostream& operator<<(std::ostream& os, type_of<long double>) {
 #endif
 ```
 
-*Source file : test.cpp*
+**Source file : test.cpp**
 ```c++
 #include <iostream>
 
 #include "type_analysis.h"
 
 using namespace type_analysis;
+
 int main() {
   std::cout << type_of<int*(int, double, int[])>() << "\n";
   std::cout << type_of<void(*(int, void(*)(int)))(int)>() << "\n";
