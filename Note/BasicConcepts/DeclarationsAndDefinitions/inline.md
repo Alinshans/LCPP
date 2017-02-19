@@ -1,24 +1,25 @@
 inline
 =====
 
-##`inline` must be together with definition
-The following expression is useless：
+##1. `inline` must be together with definition
+**Don't**
 ```c++
 inline void foo();  // The function will not be inline.
 ```
-Use:
+**Do:**
 ```c++
-inline void foo() { ... } // OK, the function will be inline.
+inline void foo() { ... } // OK, the function may be inline.
 ```
 
-##Do not use `inline` when defining a function in a class definition
+##2. Do not use `inline` when defining a function in a class definition
+**Don't:**
 ```c++
 class foo {
 public:
   inline void bar() {}
 }
 ```
-is same as
+**do:**
 ```c++
 class foo {
 public:
@@ -26,9 +27,9 @@ public:
 }
 ```
 
-##Where to use `inline`
+##3. Where to use `inline`
 Simply, if you want to use `inline`, must use it in header file, otherwise you will get a link error.<br>
-Use:
+**Use:**
 ```c++
 // header file : some.h
 class foo {
@@ -40,7 +41,7 @@ public:
 inline void foo::bar() { ... }
 ```
 
-##When to use `inline`
+##4. When to use `inline`
 Nowadays, the vast majority of cases do not need to use `inline`. If it's a good idea to inline a function, the compiler will do it without your help. Otherwise, the complier can refuse your request.
 So I think, I maybe use `inline` in this situation:
 ```c++
