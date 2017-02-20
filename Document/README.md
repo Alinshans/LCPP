@@ -3,7 +3,8 @@
 * [Object-Oriented](#Object-Oriented)
 * [Practice](#Practice)
 * [CodeStyle](#CodeStyle)
-* [Online course](#Online course)
+* [OnlineCourse](#OnlineCourse)
+
 ___
 ###Algorithm
 
@@ -27,6 +28,6 @@ ___
 * [C++ Coding Standard - by Todd Hoff](http://www.possibility.com/Cpp/CppCodingStandard.html)
 
 
-###Online course
+###OnlineCourse
 
 * [Intro to Computer Systems, Spring 2017](http://www.cs.cmu.edu/~./213/schedule.html)
