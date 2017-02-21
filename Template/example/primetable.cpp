@@ -1,15 +1,14 @@
 //
 // Generates prime numbers using compilation error messages...
 //
-
-#include <cstdio>  
+#include <cstdio> 
 
 template <size_t, size_t, bool> 
-struct Check; 
+struct Check;
 
 template <size_t i, size_t p> 
 struct Check<i, p, true> 
-{ 
+{
   enum { value = Check<i, p - 1, i % p != 0>::value };
 }; 
 
@@ -19,20 +18,21 @@ struct Check<i, p, false>
   enum { value = false }; 
 }; 
 
-template <size_t i> 
+template <size_t i>
 struct Check<i, 1, true> 
 { 
   enum { value = true }; 
 }; 
 
-// The code can run after uncommenting this part.
-template<size_t i, bool b> struct Prime 
+// The code can run after uncomment this part.
+template<size_t i, bool b> 
+//struct Prime 
 //{ 
-//  enum { is_prime = Check<i, i - 1, true>::value }; 
-//} 
-; 
+// enum { is_prime = Check<i, i - 1, true>::value }; 
+//}
+;
 
-template <size_t i> 
+template<size_t i> 
 struct Prime<i, false> 
 { 
   enum { is_prime = false };
@@ -41,29 +41,30 @@ struct Prime<i, false>
 template <size_t i> 
 struct PrintPrime 
 { 
-  enum { count = PrintPrime<i - 1>::count + 
-    Prime<i, Check<i, i - 1, true>::value>::is_prime ? 1 : 0 
+  enum 
+  { count = PrintPrime<i - 1>::count +
+    (Prime<i, Check<i, i - 1, true>::value>::is_prime ? 1 : 0)
   }; 
   PrintPrime() 
-  { 
+  {
     PrintPrime<i - 1>();
-    if (Prime<i, Check<i, i - 1, true>::value>::is_prime) 
-    {
+    if (Prime<i, Check<i, i - 1, true>::value>::is_prime)
+    { 
       printf(" No.%d : %d\n", count, i);
-    }
+    } 
   }
-}; 
+};
 
 template <> 
-struct PrintPrime<1> 
+struct PrintPrime<1>
 { 
   enum { count = 0 };
   PrintPrime() {} 
-}; 
+};
 
 int main() 
-{ 
-  PrintPrime<0x1f3>();
+{
+  PrintPrime<0x1f3>(); // 499
 }
 
 // In vs2015, will get this message from compiler(clear some notes):
