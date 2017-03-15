@@ -61,3 +61,4 @@ In other cases, especially the member function in class, just believe the compli
 [http://llvm.org/docs/CodingStandards.html#don-t-use-inline-when-defining-a-function-in-a-class-definition](http://llvm.org/docs/CodingStandards.html#don-t-use-inline-when-defining-a-function-in-a-class-definition)<br>
 [http://stackoverflow.com/questions/5057021/why-are-c-inline-functions-in-the-header?noredirect=1&lq=1](http://stackoverflow.com/questions/5057021/why-are-c-inline-functions-in-the-header?noredirect=1&lq=1)<br>
 [http://stackoverflow.com/questions/1759300/when-should-i-write-the-keyword-inline-for-a-function-method?rq=1](http://stackoverflow.com/questions/1759300/when-should-i-write-the-keyword-inline-for-a-function-method?rq=1)<br>
+[My blog](http://www.cnblogs.com/GodA/p/6554591.html)
