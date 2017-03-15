@@ -47,11 +47,13 @@ inline void foo::bar() { ... }
 ##4. When to use inline
 
 Nowadays, the vast majority of cases do not need to use `inline`. If it's a good idea to inline a function, the compiler will do it without your help. Otherwise, the complier can refuse your request.
-So I think, I maybe use `inline` in this situation:
+So I think, I will use `inline` only in this situation:
 ```c++
 // header file : some.h
-template <typename T>
-inline T add(const T& lhs, const T& rhs) { return lhs + rhs; }
+inline int max(int a, int b)
+{
+  return a < b ? b : a;
+}
 ```
 In other cases, especially the member function in class, just believe the complier, it can do better. :)
 
