@@ -2,13 +2,13 @@ const
 =====
   When modifying a data declaration, the `const` keyword specifies that the object or variable is not modifiable.
 ___
-##Usage
+## Usage
 * Const values
 * Const && pointer && reference
 * Const member functions
 
 ___
-###1. Const values
+### 1. Const values
   The `const` keyword specifies that a variable's value is constant and tells the compiler to prevent the programmer from modifying it.<br>
 ```c++
 int main() {
@@ -26,7 +26,7 @@ int main() {
 ```
   **Note:** In C, constant values default to external linkage, so they can appear only in source files. In C++, constant values default to internal linkage, which allows them to appear in header files.<br>
   
-###2. Const && pointer && reference
+### 2. Const && pointer && reference
   We have the following four forms like this:
 ```c++
 int*              // pointer to int
@@ -57,7 +57,7 @@ int* const pNum = &num1;  // need to set pointer here because we can not change 
   
   `reference` is similar to `pointer`, one of their differences is, once a `reference` is bound to a variable, it can not be changed, this `reference` always represents the variable that was originally bound to it. So the `reference` is always `const reference`, That means `int& rNum` is equal to `int& const rNum`.
   
-###3. Const member functions
+### 3. Const member functions
 Declaring a member function with the `const` keyword specifies that the function is a "read-only" function that does not modify the object for which it is called. A constant member function can not modify any non-static data members or call any member functions that aren't constant.To declare a constant member function, place the `const` keyword after the closing parenthesis of the argument list. The `const` keyword is required in both the declaration and the definition.<br>
 ```c++
 class MyClass {

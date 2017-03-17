@@ -3,7 +3,7 @@
   Queue is a commonly used first-in-first-out data structure.
 
 ___
-###1.Why doesn't the top function return a value?</br>
+### 1.Why doesn't the top function return a value?</br>
   * Does not conform to exception-safe
   If there is a `pop` function like this
 ```c++
