@@ -5,7 +5,7 @@ The `static` keyword can be used to declare variables and functions at global sc
 Static duration means that the object or variable is allocated when the program starts and is deallocated when the program ends. External linkage means that the name of the variable is visible from outside the file in which the variable is declared. Conversely, internal linkage means that the name is not visible outside the file in which the variable is declared. By default, an object or variable that is defined in the global namespace has static duration and external linkage. 
 
 ***
-##When to use
+## When to use
 * 1. When you declare a variable or function at file scope (global and/or namespace scope), the `static` keyword specifies that the variable or function has internal linkage. When you declare a variable, the variable has static duration and the compiler initializes it to 0 unless you specify another value.
 * 2. When you declare a variable in a function, the `static` keyword specifies that the variable retains its state between calls to that function.
 * 3. When you declare a data member in a class declaration, the `static` keyword specifies that one copy of the member is shared by all instances of the class. A static data member must be defined at file scope. An integral data member that you declare as `const static` can have an initializer.
@@ -13,13 +13,14 @@ Static duration means that the object or variable is allocated when the program 
 * 5. You can not declare the members of a union as static. However, a globally declared anonymous union must be explicitly declared `static`.
 
 ***
-##Use with
-###Static data members
+
+## Use with
+### Static data members
 * Static data members are not associated with any object. They exist even if no objects of the class have been defined. If the static member is declared thread_local (since C++11), there is one such object per thread. Otherwise, there is only one instance of the static data member in the entire program, with static storage duration.
 * Static data members cannot be `mutable`.
 * Static data members of a class in namespace scope have `external linkage` if the class itself has external linkage (i.e. is not a member of unnamed namespace). Local classes (classes defined inside functions) and unnamed classes, including member classes of unnamed classes, cannot have static data members.
 
-###Static member functions
+### Static member functions
 * Static member functions are not associated with any object. When called, they have no `this` pointer.
 * Static member functions cannot be `virtual`, `const`, or `volatile`.
 * The address of a static member function may be stored in a regular pointer to function, but not in a pointer to member function.
@@ -31,7 +32,8 @@ Static duration means that the object or variable is allocated when the program 
 * If a static data member is declared `constexpr`, it is implicitly `inline` and does not need to be redeclared at namespace scope. This redeclaration without an initializer (formerly required as shown above) is still permitted, but is deprecated. (since C++17)
 
 ***
-##Example to use
+
+## Example to use
 **Example 1**
 ```c++
 #include <iostream>
@@ -57,6 +59,7 @@ int main() {
 ```
 
 ***
+
 **Example 2**
 ```c++
 #include <iostream>
@@ -88,6 +91,7 @@ int main() {
 ```
 
 ***
+
 **Example 3**
 ```c++
 class MyClass {
@@ -100,6 +104,7 @@ const int MyClass::k = 3;
 ```
 
 ***
+
 **Example 4**
 ```c++
 class MyClass {
@@ -111,6 +116,7 @@ public:
 ```
 
 ***
+
 **Example 5**
 ```c++
 class MyClass {
@@ -123,6 +129,7 @@ const int MyClass::n, MyClass::m;              // so a definition is necessary (
 ```
 
 ***
+
 >***Reference***<br>
 [https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#static](https://msdn.microsoft.com/en-us/library/y5f6w579.aspx#static)<br>
 [http://en.cppreference.com/w/cpp/language/static](http://en.cppreference.com/w/cpp/language/static)<br>

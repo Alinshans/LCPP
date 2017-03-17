@@ -1,7 +1,7 @@
-[Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm "Wikipedia")
+﻿[Sorting Algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm "Wikipedia")
 ====
 
-#Summary
+# Summary
 There are a lot of sorting algorithms, I have only done on a part of the exercises and tests, and there are a lot of tests that are not tested because of their time complexity (e.g. bogo sort) or implementation complexity (e.g. tim sort). Here are some of the tests I did:
 * **Comparison sorts**
   * binary_tree_sort
@@ -23,130 +23,131 @@ There are a lot of sorting algorithms, I have only done on a part of the exercis
   * sleep_sort
 
 ***
-#Overview
+# Overview
 The following information is in my algorithm implementation.<br>
-###**Binary tree sort**
+### **Binary tree sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(nlog(n))|O(nlog(n))|O(nlog(n))|O(n)|Yes|[binary_tree_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/binary_tree_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 None.
 
-###**Bubble sort**
+### **Bubble sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n)|O(n²)|O(n²)|O(1)|Yes|[bubble_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/bubble_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/bubble_sort.gif)
 
-###**Bucket sort**
+### **Bucket sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n+k)|O(n²)|O(n+k)|O(n+k)|Yes|[bucket_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/bucket_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 None.
 
-###**Comb sort**
+### **Comb sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(nlog(n))|O(n²)|O(n²/(2^p))|O(1)|No|[comb_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/comb_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/comb_sort.gif)
 
-###**Counting sort**
+### **Counting sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |-|O(n+r)|O(n+r)|O(n+r)|Yes|[counting_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/counting_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 None.
 
-###**Heap sort**
+### **Heap sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(nlog(n))|O(nlog(n))|O(nlog(n))|O(1)|No|[heap_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/heap_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/heap_sort.gif)
 
-###**Insertion sort**
+### **Insertion sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n)|O(n²)|O(n²)|O(1)|Yes|[insertion_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/insertion_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/insertion_sort.gif)
 
-###**Merge sort**
+### **Merge sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(nlog(n))|O(nlog(n))|O(nlog(n))|O(n)|Yes|[merge_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/merge_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/merge_sort.gif)
 
-###**Odd even sort**
+### **Odd even sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n)|O(n²)|O(n²)|O(1)|Yes|[odd_even_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/odd_even_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/odd_even_sort.gif)
 
-###**Quick sort**
+### **Quick sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(nlog(n))|O(n²)|O(nlog(n))|O(log(n))|No|[quick_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/quick_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/quick_sort.gif)
 
-###**Radix sort**
+### **Radix sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n)|-|O(wn)|O(w+n)|Tes|[radix_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/radix_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 None.
 
-###**Selection sort**
+### **Selection sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n²)|O(n²)|O(n²)|O(1)|No|[selection_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/selection_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/selection_sort.gif)
 
-###**Shell sort**
+### **Shell sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n^(7/6))|O(n^(4/3))|-|O(1)|No|[shell_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/shell_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/shell_sort.gif)
 
-###**Sleep sort**
+### **Sleep sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(1)|-|-|O(n)|No|[sleep_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/sleep_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 None.
 
-###**Smooth sort**
+### **Smooth sort**
 |Best time complexity|Worst time complexity|Average time complexity|Memory|Stable|Source code|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |O(n)|O(nlog(n))|O(nlog(n))|O(1)|No|[smooth_sort.cc](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/smooth_sort.cc)|
 
-####Dynamic display<br>
+#### Dynamic display<br>
 ![Sort](https://github.com/Alinshans/LCPP/blob/master/Algorithm/Sort/Images/smooth_sort.gif)
 
 ***
-#Test
+
+# Test
 I chose some of the sorting algorithms that are commonly used or work better to show their performances in various orders of magnitude, and compared them to `std::sort`. (Only for **integers**)<br>
 * **Small amount of data (In microseconds)**
 

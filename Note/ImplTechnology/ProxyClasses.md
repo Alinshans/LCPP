@@ -1,13 +1,13 @@
 Proxy classes
 ========
-##Usages
+## Usages
 The Proxy classes can:
   * Suppress implicit conversions
   * Implement multidimensional arrays
   * Distinguish lvalue/rvalue
 
 ___
-###1. Suppress implicit conversions
+### 1. Suppress implicit conversions
 Now we have a class template like this:
 ```c++
 template <class T>
@@ -76,7 +76,8 @@ for (int i = 0; i < 10; ++i) {
 Yes, the complier does issus an error! Because if it converts an `int` to `ArraySize`, it needs to call user-defined conversion behaviors twice, which is forbidden. The class like `ArraySize` is often called `Proxy classes`, each of its objects exist for another class object, just like the proxy of other class object. 
 
 ___
-###2. Implement multidimensional arrays
+
+### 2. Implement multidimensional arrays
 For example, we want to implememt a two-dimensional array of template, we might write this code:
 ```c++
 template <class T>
@@ -114,7 +115,8 @@ cout << arr[1][1];
 ```
 
 ___
-###3. Distinguish lvalue/rvalue
+
+### 3. Distinguish lvalue/rvalue
 Let's think about such situation: we have a string class, and we overload `operator[]`. A `operator[]` can be used in following two cases:
 ```c++
 String s1, s2;
@@ -214,7 +216,8 @@ s1[1] = s2[0];
 Now our purpose was achieved, it can correctly distinguish between `rvalue usages` and `lvalue usages` by using a `Proxy class`.
 
 ___
-###Limit
+
+### Limit
 `Proxy classes` is not omnipotent, we hope that the proxy objects can seamlessly replace the object their represent, but it is difficult to achieve.<br>
 Such as the `String` class above, if now we write:
 ```c++
@@ -274,6 +277,7 @@ watchTV(arr[1]);  // error
 If we think carefully, we will understand why it does not work.
 
 ___
+
 >***Reference***<br>
 Scott Meyers."***More Effective C++***"[M]. 2015. P24-31, P213-228<br>
 [http://stackoverflow.com/questions/5718901/c-proxy-class](http://stackoverflow.com/questions/5718901/c-proxy-class)

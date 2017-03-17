@@ -1,6 +1,6 @@
 Type analysis template
 ====================
-##Code
+## Code
 
 **Header file : type_analysis.h**
 ```c++
@@ -244,5 +244,5 @@ int main() {
 }
 ```
 
-##Effect
+## Effect
 ![Effect](images/type_analysis.png)

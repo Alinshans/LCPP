@@ -1,9 +1,9 @@
 How to estimate the cache size by programming?
 ============
-##Idea
+## Idea
 Create a **contiguous block of memory** for **sequential**, **large**, **random**, and **meaningful** memory access. In this case, when the memory block can be put into the cache block, the access speed will be **significantly accelerated**. Observing the increase in memory size, we can find the **jump point** of average access time and estimate the cache size.<br>
 ___
-##Code
+## Code
 ```c++
 /*
   [ Problem  ] Estimate the cache size
@@ -64,7 +64,8 @@ int main()
 131072 KB, 2.652secs, dummy: 33554432
 ```
 ___
-##Conclusion
+
+## Conclusion
 We draw the data from the column chart, you can find the rate of change in the largest place between **2048KB** and **4096KB**.<br>
 ![](https://github.com/Alinshans/LCPP/blob/master/Mess/Images/EstimateCache.png)
 
