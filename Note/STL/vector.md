@@ -1,6 +1,6 @@
 # vector
 
-##1. Why some functions like `insert_aux` need a x_copy?
+## 1. Why some functions like `insert_aux` need a x_copy?
 
 For example:
 ```c++
