@@ -22,6 +22,10 @@ ___
 ## Algorithm
 
 * [《Matters Computational Ideas, Algorithms, Source Code》 J ̈org Arndt](http://www.jjj.de/fxt/fxtbook.pdf)
+* [《字符串匹配的KMP算法》 阮一峰](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html)
+* [《字符串匹配的Boyer-Moore算法》 阮一峰](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
+* [《RSA算法原理（一）》 阮一峰](http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html)
+* [《RSA算法原理（二）》 阮一峰](http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html)
 
 ## Object-Oriented
 
