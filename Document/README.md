@@ -1,4 +1,4 @@
-﻿# Catalog
+# Catalog
 
 * Begin
 * Modern C++
@@ -26,6 +26,7 @@ ___
 * [《字符串匹配的Boyer-Moore算法》 阮一峰](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
 * [《RSA算法原理（一）》 阮一峰](http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html)
 * [《RSA算法原理（二）》 阮一峰](http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html)
+* [《Bit Twiddling Hacks 》 Sean Eron Anderson](https://graphics.stanford.edu/~seander/bithacks.html#CopyIntegerSign)
 
 ## Object-Oriented
 
