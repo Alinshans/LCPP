@@ -1,12 +1,12 @@
 # Catalog
 
-* Begin
-* Modern C++
-* Algorithm
-* Object-Oriented
-* Practice
-* Code style
-* Online course
+* [Begin](#begin)
+* [Modern C++](#modern-c)
+* [Algorithm](#algorithm)
+* [Object-Oriented](#object-oriented)
+* [Practice](#practice)
+* [Code style](#code-style)
+* [Online course](#online-course)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 * [LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html#hl_dontinclude)
 * [Linux Tutorial: C++ Coding Practices, Style, Standards and document generation (dOxygen)](http://www.yolinux.com/TUTORIALS/LinuxTutorialC++CodingStyle.html#STYLE)
 * [C++ Coding Standard - by Todd Hoff](http://www.possibility.com/Cpp/CppCodingStandard.html)
-
+* [C++ Coding Standards for EECS 381](http://www.umich.edu/~eecs381/handouts/C++_Coding_Standards.pdf)
 
 ## Online course
 
