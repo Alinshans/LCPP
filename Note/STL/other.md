@@ -23,3 +23,25 @@ Because if the type of the value returned by `++__first` has overloaded comma op
 
 **Reference:**
 >[https://stackoverflow.com/questions/43973484/why-void-between-two-comma-separated-statements-in-a-for-loop](https://stackoverflow.com/questions/43973484/why-void-between-two-comma-separated-statements-in-a-for-loop)<br>[https://stackoverflow.com/questions/38357089/why-does-stdtransform-and-similar-cast-the-for-loop-increment-to-void](https://stackoverflow.com/questions/38357089/why-does-stdtransform-and-similar-cast-the-for-loop-increment-to-void)
+
+#### 2. Implementation of `std::min`?
+
+Why do it like this:
+```c++
+template <class T>
+const T& min(const T& a, const T& b)
+{
+  return b < a ? b : a;
+}
+```
+instead of:
+```c++
+template <class T>
+const T& min(const T& a, const T& b)
+{
+  return a < b ? a : b;
+}
+```
+
+**Answer:**
+Because the standard provides: Returns the first argument when the arguments are equivalent. See [N4713 [alg.min.max]](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4713.pdf)
