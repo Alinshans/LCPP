@@ -1,6 +1,9 @@
 inline
 =====
 
+> It is recommended to see [this blog](http://www.alinshans.com/2017/05/23/p1705231/) directly.
+> 建议直接看我的 [这篇博客](http://www.alinshans.com/2017/05/23/p1705231/)。
+
 ## 1. inline must be together with definition
 
 **Don't**
@@ -62,3 +65,4 @@ In other cases, especially the member function in class, just believe the compli
 [http://stackoverflow.com/questions/5057021/why-are-c-inline-functions-in-the-header?noredirect=1&lq=1](http://stackoverflow.com/questions/5057021/why-are-c-inline-functions-in-the-header?noredirect=1&lq=1)<br>
 [http://stackoverflow.com/questions/1759300/when-should-i-write-the-keyword-inline-for-a-function-method?rq=1](http://stackoverflow.com/questions/1759300/when-should-i-write-the-keyword-inline-for-a-function-method?rq=1)<br>
 [My blog](http://www.cnblogs.com/GodA/p/6554591.html)
+
