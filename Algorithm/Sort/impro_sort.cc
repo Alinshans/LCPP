@@ -40,7 +40,7 @@ void insertion_sort(Iter first, Iter last, Compare cmp = Compare())
 }
 
 template <typename Iter, typename T, typename Compare>
-Iter __impro_partition(Iter first, Iter last, T pivot, Compare cmp)
+Iter impro_partition(Iter first, Iter last, T pivot, Compare cmp)
 {
     while (true)
     {
@@ -57,13 +57,13 @@ Iter __impro_partition(Iter first, Iter last, T pivot, Compare cmp)
 }
 
 template <typename Iter, typename Compare>
-void __impro_split(Iter first, Iter last, Compare cmp)
+void impro_split(Iter first, Iter last, Compare cmp)
 {
     while (last - first > 128)
     {
         auto pivot = *(first + (last - first) / 2);
-        auto mid = __impro_partition(first, last, pivot, cmp);
-        __impro_split(mid, last, cmp);
+        auto mid = impro_partition(first, last, pivot, cmp);
+        impro_split(mid, last, cmp);
         last = mid;
     }
 }
@@ -72,7 +72,7 @@ void __impro_split(Iter first, Iter last, Compare cmp)
 template <typename Iter, typename Compare = std::less<>>
 inline void impro_sort(Iter first, Iter last, Compare cmp = Compare())
 {
-    __impro_split(first, last, cmp);
+    impro_split(first, last, cmp);
     insertion_sort(first, last, cmp);
 }
 

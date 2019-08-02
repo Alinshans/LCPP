@@ -55,7 +55,7 @@ public:
 
 /**  Perform a "sift up" operation.  **/
 template <typename Iter, typename Compare>
-inline void sift(Iter first, ui root, LeonardoNumber l, Compare cmp)
+void sift(Iter first, ui root, LeonardoNumber l, Compare cmp)
 {
     ui r;
     while (l >= 3)
@@ -79,7 +79,7 @@ inline void sift(Iter first, ui root, LeonardoNumber l, Compare cmp)
 
 /**  Perform a "trinkle" operation.  **/
 template <typename Iter, typename Compare>
-inline void trinkle(Iter first, ui root, ull p, LeonardoNumber l, Compare cmp)
+void trinkle(Iter first, ui root, ull p, LeonardoNumber l, Compare cmp)
 {
     while (p)
     {
@@ -120,7 +120,7 @@ inline void trinkle(Iter first, ui root, ull p, LeonardoNumber l, Compare cmp)
 
 /**  Perform a "semi-trinkle" operation.  **/
 template <typename Iter, typename Compare>
-inline void semitrinkle(Iter first, ui root, ull p, LeonardoNumber l, Compare cmp)
+void semitrinkle(Iter first, ui root, ull p, LeonardoNumber l, Compare cmp)
 {
     if (!cmp(*(first + root - l.c), *(first + root)))
     {
